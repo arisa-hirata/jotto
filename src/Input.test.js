@@ -48,12 +48,22 @@ describe('render', () => {
             expect(inputBox.length).toBe(0);
         });
         test('does not renders submit button', () => {
-            const submitButton = findByTestAttr(wrapper, "submit-button");
-            expect(submitButton.length).toBe(0);
+            const submit = findByTestAttr(wrapper, "submit-button");
+            expect(submit.length).toBe(0);
         });
     });
 });
 
-describe('update state', () => {
-
+describe('redux props', () => {
+    test('has success piece of state as prop', () => {
+        const success = true;
+        const wrapper = setup({ success });
+        const successProp = wrapper.instance().props.success;
+        expect(successProp).toBe(success);
+    });
+    test('`guessWord` action creatot is a function prop', () => {
+        const wrapper = setup();
+        const guessWordProp = wrapper.instance().props.guessWord;
+        expect(guessWordProp).toBeInstanceOf(Function);
+    });
 });
