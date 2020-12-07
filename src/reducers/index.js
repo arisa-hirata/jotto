@@ -7,5 +7,4 @@ export default combineReducers({
     success,
     guessedWords,
     secretWord
-
 });
